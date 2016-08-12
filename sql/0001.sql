@@ -1,0 +1,1 @@
+create table item (id integer not null primary key, name text);

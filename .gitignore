@@ -22,3 +22,9 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+# default db file
+sqlite.db
+
+# default executable name on OS X
+sqlitemaintainer

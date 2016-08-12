@@ -1,0 +1,1 @@
+create table table_v2 (id integer not null primary key, name text);
