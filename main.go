@@ -12,13 +12,13 @@ import (
 
 func main() {
 	// copy all args except for program name
-	var db_file string
-	var sql_dir string
+	var dbFile string
+	var sqlDir string
+	var backup bool
 	var help bool
-	flag.StringVar(&db_file, "db", "sqlite.db",
-		"Name of SQLite database file to create or upgrade.")
-	flag.StringVar(&sql_dir, "dir", "sql",
-		"Name of the directory with SQL scripts.")
+	flag.StringVar(&dbFile, "db", "sqlite.db", "Name of SQLite database file to create or upgrade.")
+	flag.StringVar(&sqlDir, "dir", "sql", "Name of the directory with SQL scripts.")
+	flag.BoolVar(&backup, "backup", true, "Write a backup file with prefix 'Copy-of-'")
 	flag.BoolVar(&help, "h", false, "Prints usage.")
 	flag.Parse()
 
@@ -28,13 +28,13 @@ func main() {
 	}
 
 	fmt.Printf("\tDatabase file: %s\n\tDirectory: %s\n is about to be upgraded.\n",
-		db_file, sql_dir)
+		dbFile, sqlDir)
 	fmt.Println("Press ENTER to proceed or terminate the application to quit.")
 
 	reader := bufio.NewReader(os.Stdin)
 	reader.ReadString('\n')
 
-	version, err := sqlitemaint.UpgradeSQLite(db_file, sql_dir)
+	version, err := sqlitemaint.UpgradeSQLite(dbFile, sqlDir, backup)
 	if err != nil {
 		log.Fatalln("Failed to upgrade DB.  Error: %v.", err)
 	}

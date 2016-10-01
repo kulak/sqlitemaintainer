@@ -28,3 +28,6 @@ sqlite.db
 
 # default executable name on OS X
 sqlitemaintainer
+
+# ingore any DB backup files:
+Copy-of-*
