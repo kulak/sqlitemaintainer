@@ -17,3 +17,7 @@ Enables unconditional backup of database file.  Backup is done once on startup e
 
 *-h*  
 Prints a syntax help message.
+
+## Alternative
+
+[GO Lang Migrate](https://github.com/golang-migrate/migrate) supports multiple backends.
