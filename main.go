@@ -36,7 +36,7 @@ func main() {
 
 	version, err := sqlitemaint.UpgradeSQLite(dbFile, sqlDir, backup)
 	if err != nil {
-		log.Fatalln("Failed to upgrade DB.  Error: %v.", err)
+		log.Fatalln("Failed to upgrade DB. Error:", err)
 	}
 	fmt.Printf("Current version is %v.\n", version)
 }
